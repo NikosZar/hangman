@@ -1,9 +1,3 @@
-#player can make guesses
-# has turn counts
-# has incorrect guesses
-# has correct guesses
-# manages turns and guesses
-
 class Player
   attr_accessor :turn
   attr_reader :correct_guesses, :incorrect_guesses

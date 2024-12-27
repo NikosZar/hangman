@@ -1,4 +1,3 @@
-# all of this should occur only when a new game is started
 class SecretWord
   def initialize
     @file = File.readlines('dictionary.txt')
