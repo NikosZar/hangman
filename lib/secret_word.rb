@@ -15,6 +15,3 @@ class SecretWord
             .sample
   end
 end
-
-game = SecretWord.new
-puts game.secret_word
