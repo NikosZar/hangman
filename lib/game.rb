@@ -29,11 +29,11 @@ class Game
 
   def guess_handler
     if !valid_guess?
-      raise ArgumentError, "Invalid Guess, Enter a Letter"
+      puts "Invalid Guess! Please enter a single letter."
+      return  # Return early without changing turn or guess limit
     elsif @player.has_guessed?(@guess)
-      puts  "You already guessed that letter!"
-      @player_turn = @player_turn
-      @guess_limit = @guess_limit
+      puts "You already guessed that letter!"
+      return  # Return early without changing turn or guess limit
     else
       process_guess
       @player.turn += 1
