@@ -1,23 +1,24 @@
 require_relative 'secret_word'
 
 class Display
-
-  def initialize
-    @word = SecretWord.new.secret_word
-    @display_string = ":" * @word.length
+  def initialize(word_length)
+    @display_string = "_" * word_length  # Only needs word length, not the word itself
   end
 
-  def display_word
-    @word
+  def show_word(secret_word, correct_guesses)
+    # Update display string based on correct guesses
+    display = secret_word.chars.map do |letter|
+      correct_guesses.include?(letter) ? letter : ":"
+    end
+    puts display.join(" ")
   end
 
-  def display_string
-    @display_string
+  def show_guesses(incorrect_guesses)
+    puts "\nIncorrect guesses: #{incorrect_guesses.join(", ")}"
   end
 
+  def show_turns(turn_count)
+    puts "Turn: #{turn_count}"
+  end
 end
-
-game = Display.new
-puts game.display_word
-puts game.display_string
 
