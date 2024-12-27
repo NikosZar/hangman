@@ -9,7 +9,7 @@ class Game
     @player = Player.new
     @display = Display.new(@secret_word.length)
     @guess = ''
-    @guess_limit = 20
+    @guess_limit = 15
     @game_over = false
   end
 
