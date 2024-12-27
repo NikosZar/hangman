@@ -10,3 +10,4 @@ terminal hangman game
 #Instructions
 - Clone repo and navigate to the project directory  
 - run ```ruby lib/game.rb```
+- You have 15 guesses
