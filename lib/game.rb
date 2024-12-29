@@ -6,12 +6,21 @@ require_relative('game_state')
 class Game
   attr_reader :secret_word, :player, :guess_limit
 
-  def initialize
-    @secret_word = SecretWord.new.secret_word.upcase
-    @player = Player.new
+  def initialize(saved_data = nil)
+    if saved_data
+      @secret_word = saved_data[:secret_word]
+      @player = Player.new
+      @player.turn = saved_data[:player_turn]
+      @guess_limit = saved_data[:guess_limit]
+      saved_data[:correct_guesses].each { |guess| @player.add_correct_guess(guess) }
+      saved_data[:incorrect_guesses].each { |guess| @player.add_incorrect_guess(guess) }
+    else
+      @secret_word = SecretWord.new.secret_word.upcase
+      @player = Player.new
+      @guess_limit = 15
+    end
     @display = Display.new(@secret_word.length)
     @guess = ''
-    @guess_limit = 15
     @game_over = false
   end
 

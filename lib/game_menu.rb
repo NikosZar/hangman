@@ -35,7 +35,14 @@ class GameMenu
         game = Game.new
         game.play
       elsif @choice == '2'
-        puts "Loading.."
+        if (saved_data = GameState.load)
+          game = Game.new(saved_data)
+          game.play
+        else
+          puts "\nStarting new game instead..."
+          game = Game.new
+          game.play
+        end
       elsif @choice == '3'
         puts "Thanks for Playing!"
       end

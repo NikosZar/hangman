@@ -1,0 +1,12 @@
+---
+:secret_word: COSTS
+:player_turn: 7
+:guess_limit: 9
+:incorrect_guesses:
+- A
+- E
+- I
+- U
+- "Y"
+:correct_guesses:
+- O

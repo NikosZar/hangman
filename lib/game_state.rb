@@ -41,4 +41,32 @@ class GameState
     "saved_games/game_#{Time.now.strftime('%Y%m%d_%H%M%S')}.yml"
   end
 
+  def self.load
+    saved_files = Dir['saved_games/*.yml']
+    if saved_files.empty?
+      puts "\nThere are no Saved Games"
+      puts "\n"
+      menu = GameMenu.new
+      menu.start
+      return nil
+    end
+
+    #display available saved games
+    puts "\nSaved Game"
+    saved_files.each_with_index do |file, index|
+      puts "#{index+1}. #{File.basename(file)} "
+    end
+
+    # Get user choice
+    print "\nChoose a game to load (1-#{saved_files.length}): "
+    choice = gets.chomp.to_i
+
+    if choice.between?(1, saved_files.length)
+      YAML.load_file(saved_files[choice - 1])
+    else
+      puts "Invalid Choice!"
+      nil
+    end
+  end
+
 end
