@@ -1,13 +1,11 @@
 # Hangman  
 terminal hangman game  
 
-
-- Player class: Manages player state (turns, guesses)  
-- Display class: Handles visual representation  
-- Game class: Manages game flow and guess validation  
-- SecretWord class: Handles word selection
+# Features
+- Load & Save capabilities
+- Terminal Hangman UI
 
 #Instructions
 - Clone repo and navigate to the project directory  
-- run ```ruby lib/game.rb```
-- You have 15 guesses
+- run ```ruby lib/start_game.rb```
+- You have 10 guesses.
