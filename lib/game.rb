@@ -1,8 +1,10 @@
 require_relative('display')
 require_relative('player')
 require_relative('secret_word')
+require_relative('game_state')
 
 class Game
+  attr_reader :secret_word, :player, :guess_limit
 
   def initialize
     @secret_word = SecretWord.new.secret_word.upcase
@@ -23,8 +25,13 @@ class Game
 
   def input_guess
     puts "Type a letter and press Enter/Return"
+    puts "If You Want to Save Your Game, Type 'save' "
     @guess = gets.chomp.upcase.to_s
-    guess_handler
+    if @guess == 'SAVE'
+      save_current_game
+    elsif
+      guess_handler
+    end
   end
 
   def guess_handler
@@ -74,6 +81,11 @@ class Game
     else
       puts "Game Over! The word was: #{@secret_word}"
     end
+  end
+
+  def save_current_game
+    game_state = GameState.new(self)
+    game_state.save
   end
 
 end
