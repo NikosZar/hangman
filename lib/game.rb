@@ -46,10 +46,10 @@ class Game
   def guess_handler
     if !valid_guess?
       puts "Invalid Guess! Please enter a single letter."
-      return  # Return early without changing turn or guess limit
+      return
     elsif @player.has_guessed?(@guess)
       puts "You already guessed that letter!"
-      return  # Return early without changing turn or guess limit
+      return
     else
       process_guess
       @player.turn += 1
@@ -80,7 +80,7 @@ class Game
   end
 
   def winner?
-    guessed? && @guess_limit > 0  # Win if word is guessed and still have guesses left
+    guessed? && @guess_limit > 0
   end
 
   def show_final_result

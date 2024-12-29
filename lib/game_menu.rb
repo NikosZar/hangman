@@ -1,14 +1,6 @@
 require_relative('game')
 
 class GameMenu
-
-  # Make initial Display Menu
-  #   1. New Game
-  #   2. Load Game
-  #   3. Exit (optional)
-
-  #Starts when the program is first run
-
   def initialize
     @choice = nil
   end

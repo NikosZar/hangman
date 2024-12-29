@@ -1,12 +1,6 @@
 require 'yaml'
 
 class GameState
-  # def load
-  # finds the directory
-  # if empty, then no saved games
-  # else lists with index the files in that directory
-  # grab choice, choice -1 = the index
-  # load_file the desired file
   def initialize(game)
     @incorrect_guesses = game.player.incorrect_guesses
     @correct_guesses = game.player.correct_guesses
